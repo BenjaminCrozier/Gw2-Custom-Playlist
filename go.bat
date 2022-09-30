@@ -26,55 +26,53 @@ echo.
 echo 	Press any key to start by creating the Playlist folders
 pause
 
+@REM Replace these youtube playlist ID's with your own! 
+set T[0]=MainMenu
+set P[0]=PLktdtTNubKSofHsICrxW9KE9DeFPFYqoG
+
+set T[1]=Underwater
+set P[1]=PLfP6i5T0-DkKt8eo7u222EnUO4N7Q3raT
+
+set T[2]=Ambient
+set P[2]=PLwd1f7679ZuL1foxHMSQYyb5HBjjWkjUe
+
+set T[3]=NightTime
+set P[3]=PL7pkSK1xbGD5PB34Ol68utSbqeKIBdwna
+
+set T[4]=Defeated
+set P[4]=PLfP6i5T0-DkIMnLY0r17o_kOOsVtQIJIX
+
+set T[5]=City
+set P[5]=PLPWDeTGQ3-6aSk8zRQMY-7P_07CmFghf0
+
+set T[6]=Battle
+set P[6]=PLW_Ogmr0b_5vDo9mB_vEMiJNybc9eme-9
+
+set T[7]=BossBattle
+set P[7]=PLLEnbi5KRv6Z8CMUtLiA81-wQCLVUOKYs
+
+set T[8]=Victory
+set P[8]=PLT6P4kQFSBOOvuSV_KMcNV2Z_EiI2t6bE
+
+set T[9]=Crafting
+set P[9]=PL904AuFDEgehp5ZQz_pkjWd05umUzi4QP
 
 :makedir
 echo [+] Building DIR structure ...
+
 If NOT EXIST "%_MPATH_%" mkdir "%_MPATH_%"
 If NOT EXIST "%_LPATH_%" mkdir "%_LPATH_%"
 If NOT EXIST "%_MPATH_%#Playlists" mkdir "%_MPATH_%#Playlists"
 
-FOR %%G IN (Ambient Battle BossBattle City Defeated MainMenu NightTime Underwater Victory Crafting) DO (IF NOT EXIST "%_MPATH_%%%G" (mkdir "%_MPATH_%%%G" & echo [+] %%G folder created! ) else ( echo [*] Folder %%G allready created))
+FOR %%G IN (%T%) DO (IF NOT EXIST "%_MPATH_%%%G" (mkdir "%_MPATH_%%%G" & echo [+] %%G folder created! ) else ( echo [*] Folder %%G allready created))
 echo.
 echo.
 
-@REM Replace these youtube playlist ID's with your own!
-set t[0]=MainMenu
-set p[0]=PLFhB40nM1iSpRoLIuGBOO52lejOeSA0-4
-
-@REM set t[1]=Underwater
-@REM set p[1]=PLgNxd3KRDkEfVXOiltMiBCAqI4dHIFkdm
-
-@REM set t[2]=Ambient
-@REM set p[2]=PLgNxd3KRDkEd5jrDbz8BE3tI27zFb1ii6
-
-@REM set t[3]=NightTime
-@REM set p[3]=PLgNxd3KRDkEe2K-7XrWqFYyZHbj_vOzTK
-
-@REM set t[4]=Defeated
-@REM set p[4]=PLgNxd3KRDkEdwSBziS1Z_KP540Z0txxr9
-
-@REM set t[5]=City
-@REM set p[5]=PLgNxd3KRDkEfdpiRtXkozkTngwP33eUbk
-
-@REM set t[6]=Battle
-@REM set p[6]=PLgNxd3KRDkEctGuAeQe2rddOXCsC-lxy-
-
-@REM set t[7]=BossBattle
-@REM set p[7]=PLgNxd3KRDkEeTLcWV36uzdO3Omjx3Khq_
-
-@REM set t[8]=Victory
-@REM set p[8]=PLgNxd3KRDkEd5iCNNbGPsMffFN3fPvqEo
-
-@REM set t[9]=Crafting
-@REM set p[9]=PLgNxd3KRDkEfkiWyt8Yq2uZwdOnbd_l6h
-
-
-@echo off
 FOR /L %%i IN (0 1 9) DO  (
     SETLOCAL
 	
-    call set title=%%t[%%i]%%
-    call set playlistID=%%p[%%i]%%
+    call set title=%%T[%%i]%%
+    call set playlistID=%%P[%%i]%%
 
     @REM get save path 
     call SET savePath=".\CustomPlaylist\%%title%%\%%%%(title)s.%%%%(ext)s"
@@ -86,7 +84,7 @@ FOR /L %%i IN (0 1 9) DO  (
 )
 
 :makeplaylists
-FOR %%G IN (Ambient Battle BossBattle City Defeated MainMenu NightTime Underwater Victory Crafting) DO (
+FOR %%G IN (%T%) DO (
 	chdir "%_MPATH_%%%G"
 	echo [+] Building %%G.m3u ...
 	dir /o:n/a/b/s *.mp3 *.aiff *.flac *.ogg *.wav >"%_MPATH_%#Playlists\%%G.m3u" || (del "%_MPATH_%#Playlists\%%G.m3u" && echo [*] %%G folder is empty...)
