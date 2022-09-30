@@ -5,7 +5,6 @@ set _MPATH_=%_MAINPATH_%CustomPlaylist\
 set _LPATH_=%_MAINPATH_%log\
 
 echo "GW2 Custom Playlist Rev 2.1 by TheCheatsrichter + BC"
-
 echo.
 echo This batch will automatically pull playlist from youtube to create custom GW2 sound tracks
 echo.
@@ -21,18 +20,19 @@ pause
 :makedir
 echo [+] Building DIR structure ...
 
+@REM get youtube-dl
+If NOT EXIST "youtube-dl.exe" curl https://yt-dl.org/latest/youtube-dl.exe -L --output youtube-dl.exe
+
 @REM make dirs
 If NOT EXIST "%_MPATH_%" mkdir "%_MPATH_%"
 If NOT EXIST "%_LPATH_%" mkdir "%_LPATH_%"
 If NOT EXIST "%_MPATH_%#Playlists" mkdir "%_MPATH_%#Playlists"
 
-@REM get youtube-dl
-If NOT EXIST "youtube-dl.exe" curl https://yt-dl.org/latest/youtube-dl.exe -L --output youtube-dl.exe
-
 FOR %%G IN (Ambient Battle BossBattle City Defeated MainMenu NightTime Underwater Victory Crafting) DO (IF NOT EXIST "%_MPATH_%%%G" (mkdir "%_MPATH_%%%G" & echo [+] %%G folder created! ) else ( echo [*] Folder %%G allready created))
 echo.
 echo.
 
+@REM download playlists
 for /f "usebackq tokens=1-2 delims=," %%a in ("playlist.csv") do (
     SETLOCAL
 	
