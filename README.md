@@ -15,6 +15,6 @@ Replace the playlist ID's found in this batch file with your own:
     set t[0]=MainMenu
     set p[0]=PLktdtTNubKSofHsICrxW9KE9DeFPFYqoG
 
-Here, the playlist ID "PLktdtTNubKSofHsICrxW9KE9DeFPFYqoG" can be found in it's corrisponding youtube url: https://www.youtube.com/watch?v=2a-VL1VoHJ0&list=*PLktdtTNubKSofHsICrxW9KE9DeFPFYqoG*
+Here, the playlist ID "PLktdtTNubKSofHsICrxW9KE9DeFPFYqoG" can be found in it's corrisponding youtube url: https://www.youtube.com/watch?v=2a-VL1VoHJ0&list=PLktdtTNubKSofHsICrxW9KE9DeFPFYqoG
 
 
