@@ -7,15 +7,7 @@ set _LPATH_=%_MAINPATH_%log\
 echo "GW2 Custom Playlist Rev 2.1 by TheCheatsrichter + BC"
 
 echo.
-echo This batch will automatically create folders
-echo in which you can place your custom audio files
-echo for Guild Wars 2.
-echo.
-echo It will also download music from youtube via youtube-dl
-echo.
-echo Supported formats are:
-echo 	*.mp3 *.aiff *.flac *.ogg *.wav
-echo.
+echo This batch will automatically pull playlist from youtube to create custom GW2 sound tracks
 echo.
 echo This batch will:
 echo 	*)create subfolders for each playlist
