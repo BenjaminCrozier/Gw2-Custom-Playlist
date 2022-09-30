@@ -29,7 +29,7 @@ If NOT EXIST "%_MPATH_%#Playlists" mkdir "%_MPATH_%#Playlists"
 @REM get youtube-dl
 If NOT EXIST "youtube-dl.exe" curl https://yt-dl.org/latest/youtube-dl.exe -L --output youtube-dl.exe
 
-FOR %%G IN (%T%) DO (IF NOT EXIST "%_MPATH_%%%G" (mkdir "%_MPATH_%%%G" & echo [+] %%G folder created! ) else ( echo [*] Folder %%G allready created))
+FOR %%G IN (Ambient Battle BossBattle City Defeated MainMenu NightTime Underwater Victory Crafting) DO (IF NOT EXIST "%_MPATH_%%%G" (mkdir "%_MPATH_%%%G" & echo [+] %%G folder created! ) else ( echo [*] Folder %%G allready created))
 echo.
 echo.
 
@@ -49,7 +49,7 @@ for /f "usebackq tokens=1-2 delims=," %%a in ("playlist.csv") do (
 )
 
 :makeplaylists
-FOR %%G IN (%T%) DO (
+FOR %%G IN (Ambient Battle BossBattle City Defeated MainMenu NightTime Underwater Victory Crafting) DO (
 	chdir "%_MPATH_%%%G"
 	echo [+] Building %%G.m3u ...
 	dir /o:n/a/b/s *.mp3 *.aiff *.flac *.ogg *.wav >"%_MPATH_%#Playlists\%%G.m3u" || (del "%_MPATH_%#Playlists\%%G.m3u" && echo [*] %%G folder is empty...)
@@ -87,4 +87,5 @@ if "%w%" == "y" (
 	echo [-] Playlists not applied!
 	color 0C
 	)
+
 pause
