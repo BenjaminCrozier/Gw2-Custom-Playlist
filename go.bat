@@ -70,7 +70,7 @@ FOR /L %%i IN (0 1 9) DO  (
     call SET savePath=".\CustomPlaylist\%%title%%\%%%%(title)s.%%%%(ext)s"
 
     @REM run youtube-dl
-    call youtube-dl -x --audio-format mp3 -o %%savePath%% -i %%playlistID%% --download-archive %%_LPATH_%%\%%title%%.log
+    call youtube-dl -x --audio-format mp3 -o %%savePath%% -i %%playlistID%% --download-archive "%%_LPATH_%%\%%title%%.log"
 
     ENDLOCAL    
 )
