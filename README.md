@@ -20,4 +20,4 @@ https://www.youtube.com/watch?v=2a-VL1VoHJ0&list=PLktdtTNubKSofHsICrxW9KE9DeFPFY
 
 * Replace the Playlist ID's with your own
 * Do not change the first column of the CSV
-* Similarly do not change the filetype (CSV) if you're using excel or something similar
+* Similarly, do not change the filetype (CSV) if you're using excel or something similar
