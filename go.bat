@@ -23,6 +23,15 @@ echo [+] Building DIR structure ...
 @REM get youtube-dl
 If NOT EXIST "youtube-dl.exe" curl https://yt-dl.org/latest/youtube-dl.exe -L --output youtube-dl.exe
 
+@REM get ffmpeg
+If NOT EXIST "ffmpeg.exe" (
+	If NOT EXIST "ffmpeg.zip" call curl https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl-shared.zip -L --output ffmpeg.zip
+	call tar -xf ffmpeg.zip
+	move .\ffmpeg-master-latest-win64-gpl-shared\bin\ffmpeg.exe .\ffmpeg.exe 
+	rmdir /S /Q .\ffmpeg-master-latest-win64-gpl-shared
+	del .\ffmpeg.zip
+)
+
 @REM make dirs
 If NOT EXIST "%_MPATH_%" mkdir "%_MPATH_%"
 If NOT EXIST "%_LPATH_%" mkdir "%_LPATH_%"
@@ -41,9 +50,9 @@ for /f "usebackq tokens=1-2 delims=," %%a in ("playlist.csv") do (
 
     @REM get save path 
     call SET savePath=".\CustomPlaylist\%%title%%\%%%%(title)s.%%%%(ext)s"
-
+    
     @REM run youtube-dl
-    call youtube-dl -x --audio-format mp3 -o %%savePath%% -i %%playlistID%% --download-archive "%%_LPATH_%%\%%title%%.log"
+    call youtube-dl -x --audio-format mp3 --audio-quality 0 --ffmpeg-location "%%cd%%" -o %%savePath%% -i %%playlistID%% --download-archive "%%_LPATH_%%\%%title%%.log"
 
     ENDLOCAL    
 )

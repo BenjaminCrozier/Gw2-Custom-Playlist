@@ -1,3 +1,5 @@
 /CustomPlaylist
 /log
 youtube-dl.exe
+/ffmpeg-master-latest-win64-gpl-shared
+ffmpeg.exe
