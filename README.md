@@ -3,8 +3,6 @@ Extends [TheCheatsrichter's terrific custom Guild Wars 2 Playlist](https://githu
 
 This addition will allows users to constantly update their GW2 playlist via the youtube app (just remember to re-run this batch file). 
 
-**Compile your own playlist on youtube or find one online!**
-
 ## Instructions
 Replace the playlist ID's found in `playlist.csv` with your own: 
 
