@@ -1,4 +1,4 @@
-# Gw2CustomPlaylist
+# Youtube Playlist -> GW2 Custom Sound Track 
 Extends TheCheatsrichter's terrific custom Guild Wars 2 Playlist batch file to automatically download playlists from youtube. 
 
 This addition will allows users to constantly update their GW2 playlist via the youtube app (just remember to re-run this batch file). 
